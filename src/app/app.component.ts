@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { JSonApiService } from './j-son-api.service';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { APP_BASE_HREF, NgFor, NgIf } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -13,6 +14,7 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   title = 'showApiDataWithCard';
+  environmentName = environment.name;
   number:any = 1;
   number2:any = 1;
   loadData= [];
@@ -29,7 +31,10 @@ export class AppComponent implements OnInit {
   showCard = false;
   isVisible = false;
 
-  constructor( public jsonService:JSonApiService){}
+  constructor( public jsonService:JSonApiService,
+    @Inject(APP_BASE_HREF) private baseHref: string){
+      console.log(`APP_BASE_HREF is ${this.baseHref}`);
+    }
 
   
   ngOnInit(){

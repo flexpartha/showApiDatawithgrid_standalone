@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { ErrorCatchingInterceptor } from './app/interceptors/error-catching.interceptor';
 import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 if (environment.production) {
   enableProdMode();
@@ -30,6 +31,9 @@ bootstrapApplication(AppComponent, {
         provide: HTTP_INTERCEPTORS,
         useClass: ErrorCatchingInterceptor,
         multi: true
+    },
+    {
+      provide: APP_BASE_HREF, useValue: environment.BASE_URL
     },
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations()

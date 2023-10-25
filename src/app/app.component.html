@@ -1,5 +1,5 @@
 <div class="card text-center m-3">
-  <h3 class="card-header">Angular 9 Pagination Example</h3>
+  <h3 class="card-header">Angular 9 Pagination Example for {{environmentName}}</h3>
   <div class="card-body">
     <div>
       <!-- <span><h6>TOTAL LOAD DATA:::---</h6> {{totalnumberofData | async}}</span> -->
@@ -63,9 +63,9 @@
       </div>
     </div>
   </div><br>
-  <div class="row" *ngIf="showCard" id="row2">
+  <div  *ngIf="showCard" id="row2">
     <section>
-      <div class="container" *ngFor ="let data of getEachValue; let i = index;">
+      <div class="container1" *ngFor ="let data of getEachValue; let i = index;">
         <div class="row">
           <h5>{{data.title}}</h5>
           <p>{{data.body}}</p>
@@ -85,3 +85,11 @@
     </section>
   </div> -->
 </div>
+<br/>
+<br/>
+<!-- <div class="flex-container" *ngFor ="let data of getEachValue; let i = index;">
+    <div>
+      <h5>{{data.title}}</h5>
+      <p>{{data.body}}</p>
+    </div>
+</div> -->

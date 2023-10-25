@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  name: "DEV ENVIRONMENT",
+  // logLoaderUrl: '../assets/config/log-loader.json',
+  // commonServiceUrl: 'https://portaltest.mazdausa.com/ktcfs/commonservices/',
+  // logLevel: 0,
+  BASE_URL: '/Dev/showdata'
 };
 
 /*
