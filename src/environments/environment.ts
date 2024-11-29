@@ -8,7 +8,7 @@ export const environment = {
   // logLoaderUrl: '../assets/config/log-loader.json',
   // commonServiceUrl: 'https://portaltest.mazdausa.com/ktcfs/commonservices/',
   // logLevel: 0,
-  BASE_URL: '/Dev/showdata'
+  BASE_URL: "Dev/showdata",
 };
 
 /*
