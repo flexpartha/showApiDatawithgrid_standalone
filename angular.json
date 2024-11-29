@@ -80,21 +80,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "showApiDataWithCard:build"
+            "buildTarget": "showApiDataWithCard:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "showApiDataWithCard:build:production"
+              "buildTarget": "showApiDataWithCard:build:production"
             },
             "qa": {
-              "browserTarget": "showApiDataWithCard:build:qa"
+              "buildTarget": "showApiDataWithCard:build:qa"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "showApiDataWithCard:build"
+            "buildTarget": "showApiDataWithCard:build"
           }
         },
         "test": {
