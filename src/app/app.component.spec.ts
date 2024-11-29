@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed, waitForAsync,fakeAsync,tick, flush } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Observable, Observer, of } from 'rxjs';
@@ -78,9 +78,11 @@ fdescribe('AppComponent', () => {
   };
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule, AppComponent],
+    imports: [AppComponent],
     providers: [
-        JSonApiService
+        JSonApiService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
     ]
 }).compileComponents();
     httpClient = TestBed.inject(HttpClient);

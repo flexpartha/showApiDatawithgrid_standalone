@@ -1,7 +1,8 @@
- import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+ import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { JSonApiService } from './j-son-api.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 fdescribe('JSonApiService', () => {
   let service: JSonApiService;
@@ -142,16 +143,13 @@ fdescribe('JSonApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers:[
+    imports: [],
+    providers: [
         JSonApiService,
-        // { provide: 'url', 
-        //   useValue: 'apiUrl'
-        // }
-      ],
-        imports: [
-          HttpClientTestingModule
-        ]
-    });
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+    ]
+});
     service = TestBed.inject(JSonApiService);
     httpTestingController = TestBed.inject(HttpTestingController)
   });
